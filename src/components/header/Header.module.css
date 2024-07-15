@@ -1,33 +1,30 @@
-  .header {
-    @apply relative h-[450px] overflow-hidden bg-no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-image: url('../../assets/images/tarotbg.png'); 
-  }
-  
+.header {
+  @apply relative h-[450px] overflow-hidden bg-no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../assets/images/tarotbg.png');
+}
 
-  .navbar {
-    @apply relative flex w-full items-center justify-between bg-black py-2 shadow-md dark:bg-gray-900 lg:flex-wrap lg:justify-start lg:py-4;
-  }
-  
-  .navContainer {
-    @apply flex w-full flex-wrap items-center justify-between px-3;
-  }
-  
-  .navLinksContainer {
-    @apply !visible hidden grow basis-[100%] items-center text-center lg:!flex lg:basis-auto lg:text-left;
-  }
-  
-  .navLinks {
-    @apply me-auto flex flex-col lg:flex-row;
-  }
-  
-  .navItem {
-    @apply mb-4 lg:mb-0 lg:pe-2;
-  }
-  
-  .navLink {
-    @apply block text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2;
-  }
+.navbar {
+  @apply relative flex w-full items-center justify-between bg-black py-2 shadow-md lg:flex-wrap lg:justify-start lg:py-4;
+}
 
-  
+.navContainer {
+  @apply flex w-full flex-wrap items-center justify-between px-3;
+}
+
+.navLinksContainer {
+  @apply !visible hidden grow basis-[100%] items-center text-center lg:!flex lg:basis-auto lg:text-left;
+}
+
+.navLinks {
+  @apply me-auto flex flex-col lg:flex-row;
+}
+
+.navItem {
+  @apply mb-4 lg:mb-0 lg:pe-2;
+}
+
+.navLink {
+  @apply block text-white transition duration-200 hover:text-gray-400 ease-in-out focus:text-gray-400 active:text-gray-400 motion-reduce:transition-none lg:px-2;
+}
