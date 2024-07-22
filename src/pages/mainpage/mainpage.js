@@ -5,6 +5,7 @@ import Title from '../../components/Cards/Title';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import bg from '../../assets/images/bg_1.jpg'; 
 import Footer from '../../components/footer/Footer';
+import About from '../../components/aboutme/About';
 
 const MainPage = () => {
   return (
@@ -12,6 +13,7 @@ const MainPage = () => {
       <Header />
       <Title />
       <PricingBox />
+      <About />
       <Testimonials />
       <Footer />
     </div>
