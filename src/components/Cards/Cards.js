@@ -26,7 +26,7 @@ const PricingBox = () => {
       <Box
         price="0"
         title="Free"
-        btnClass="btn-outline-primary"
+        btnClass="btn-primary"
         btnTitle="Sign up for free"
         feature={featureBox1}
       />
