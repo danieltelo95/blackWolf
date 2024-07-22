@@ -1,12 +1,12 @@
 .header {
   @apply relative h-[450px] overflow-hidden bg-no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-image: url('../../assets/images/tarotbg.png');
 }
 
 .navbar {
-  @apply relative flex w-full items-center justify-between bg-black py-2 shadow-md lg:flex-wrap lg:justify-start lg:py-4;
+  @apply relative flex w-full items-center justify-between bg-transparent py-2 shadow-md lg:flex-wrap lg:justify-start lg:py-4;
 }
 
 .navContainer {
