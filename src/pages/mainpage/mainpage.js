@@ -6,6 +6,7 @@ import Testimonials from '../../components/Testimonials/Testimonials';
 import bg from '../../assets/images/bg_1.jpg'; 
 import Footer from '../../components/footer/Footer';
 import About from '../../components/aboutme/About';
+import Cursos from '../../components/Cursos/Cursos';
 
 const MainPage = () => {
   return (
@@ -14,6 +15,7 @@ const MainPage = () => {
       <Title />
       <PricingBox />
       <About />
+      <Cursos />
       <Testimonials />
       <Footer />
     </div>
