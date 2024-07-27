@@ -12,12 +12,7 @@ function App() {
 
   return (
     <div className="h-full w-full bg-gradient-to-br from-sky-900 to-gray-800">
-       {user ? <MainPage /> : (
-        <>
-          <Login />
-          <Signup />
-        </>
-      )}
+      <MainPage /> 
     </div>
   );
 }
