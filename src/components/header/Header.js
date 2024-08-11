@@ -5,16 +5,12 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <header>
-      {/* Navigation bar */}
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
-          <div className="flex items-center">
-            {/* Puedes agregar aquí el logo o elementos adicionales */}
-          </div>
 
           {/* Navigation links */}
-          <div className={styles.navLinksContainer} id="navbarSupportedContentX">
-            <ul className={styles.navLinks}>
+          <div className="flex justify-between w-full">
+            <ul className={`${styles.navLinks} flex`}>
               <li className={styles.navItem}>
                 <a className={styles.navLink} href="#!">
                   Sobre Mí
@@ -23,6 +19,18 @@ const Header = () => {
               <li className={styles.navItem}>
                 <a className={styles.navLink} href="#!">
                   Cursos
+                </a>
+              </li>
+            </ul>
+            <ul className={`${styles.navLinks} flex`}>
+              <li className={styles.navItem}>
+                <a className={styles.navLink} href="#!">
+                  Iniciar sesión
+                </a>
+              </li>
+              <li className={styles.navItem}>
+                <a className={styles.navLink} href="#!">
+                  Registrarse
                 </a>
               </li>
             </ul>
