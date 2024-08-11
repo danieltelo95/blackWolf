@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth, db } from '../../firebase'
+import { auth, db } from '../../firebase/firebase'
 import { setUser } from "../../store/actions/actions";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";

@@ -1,8 +1,9 @@
+// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import userReducer from './reducer/userReducer';
-import coursesReducer from './reducer/coursesReducer';
-import discountsReducer from './reducer/discountsReducer';
+import userReducer from '../store/reducer/userReducer';
+import coursesReducer from '../store/reducer/coursesReducer';
+import discountsReducer from '../store/reducer/discountsReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { auth, registerUser } from "../../firebase";
+import { auth, registerUser } from "../../firebase/firebase";
 import { setUser } from '../../store/actions/actions'
 
 

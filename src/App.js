@@ -6,6 +6,7 @@ import Signup from './components/SignUp/SignUp';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function App() {
 
   const user = useSelector((state) => state.user);
