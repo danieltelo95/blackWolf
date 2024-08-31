@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore, doc, setDoc } from 'firebase/firestore'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYuhfSTG0N9mPqTsDSoVjU-9B8nK5yZSY",
@@ -16,15 +16,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const ADMIN_EMAIL = 'daniel.qui@gmail.com'
-
-const registerUser = async (user) => {
-  const userRef = doc(db, "users", user.uid);
-  const role = user.email === ADMIN_EMAIL ? 'admin' : 'user';
-  await setDoc(userRef, {
-    email: user.email,
-    role: role
-  })
-}
-
-export { auth, db, registerUser };
+export { auth, db, signInWithEmailAndPassword };

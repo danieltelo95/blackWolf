@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+body {
+  min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
+  background-image: linear-gradient(to bottom, #232232, #212130, #1e1f2d, #1c1e2b, #1a1c28, #171b27, #141b25, #111a23, #0d1a21, #0b191e, #0a191a, #0a1817);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0; /* Elimina los márgenes por defecto del body */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

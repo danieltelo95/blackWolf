@@ -4,9 +4,7 @@ import Header from '../../components/header/Header';
 
 const MainPage = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <div></div>
   );
 };
 
