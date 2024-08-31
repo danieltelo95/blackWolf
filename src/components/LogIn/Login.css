@@ -1,0 +1,37 @@
+/* Añade esto a tu archivo CSS, ya que Tailwind no maneja pseudo-elementos directamente */
+.button-custom {
+    @apply inline-block rounded bg-gray-800 border text-white text-center text-sm py-4 px-4 w-32 transition-all duration-500 cursor-pointer my-1;
+}
+
+.button-custom span {
+    @apply inline-block relative transition-all duration-500;
+}
+
+.button-custom span::after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: all 1s ease-in-out;
+}
+
+.button-custom:hover span {
+    padding-right: 10px;
+}
+
+.button-custom:hover span::after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Estilos para el efecto de vidrio esmerilado */
+.glass-effect {
+    background: rgba(107, 70, 193, 0.1); /* Fondo blanco con opacidad */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.6); /* Sombra sutil */
+    backdrop-filter: blur(8px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0.8rem; /* Esquinas redondeadas */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    padding: 2rem; /* Espaciado interno */
+}
