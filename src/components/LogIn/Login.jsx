@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setUser } from "../../store/reducer/userReducer";
-import { auth, signInWithEmailAndPassword} from '../../firebase/firebase'
+import { auth, signInWithEmailAndPassword, signInWithGoogle} from '../../firebase/firebase'
 import './Login.css'
 
 const adminEmail = 'admin@example.com';
@@ -12,6 +13,30 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithGoogle();
+            console.log('Result: ', result);
+            const user = result.user;
+
+            const userData = {
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName
+            }
+            const role = user.email === adminEmail ? 'admin' : 'user';
+            
+            dispatch(setUser({ user: userData, role}))
+            navigate('/')
+
+        } catch (error) {
+            console.error('Error al iniciar sesión con Google: ', error);
+            setError(error.message)
+            
+        }
+    }
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -22,6 +47,7 @@ const LoginForm = () => {
             console.log('logged in: ', userCredential.user);
 
             dispatch(setUser({user, role}))
+            navigate('/')
             
         } catch (error) {
             setError(error.message);
@@ -65,6 +91,11 @@ const LoginForm = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                </div>
+                <div>
+                    <button onClick={handleGoogleLogin}>
+                        Iniciar sesión con Google 
+                    </button>
                 </div>
                 <div className='flex-col mb-6'></div>
                 <div className="flex justify-center">
