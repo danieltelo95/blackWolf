@@ -1,11 +1,42 @@
-import React from "react";
-import { useSelector } from 'react-redux'
-import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase";
+import { clearUser, setUser } from "../../store/reducer/userReducer";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { user, role } = useSelector((state) => state.user || { user: null, role: null });
     
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) {
+                // Usuario autenticado
+                const userRole = firebaseUser.email === 'admin@example.com' ? 'admin' : 'user'; 
+                dispatch(setUser({ user: { uid: firebaseUser.uid, email: firebaseUser.email, displayName: firebaseUser.displayName}, role: userRole }));
+            } else {
+                // Usuario no autenticado
+                dispatch(clearUser());
+            }
+        });
+
+        return () => unsubscribe(); // Limpia la suscripción al desmontar el componente
+    }, [dispatch]);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            dispatch(clearUser());
+            navigate('/login')
+        } catch (error) {
+            console.error('Error al cerrar sesión: ', error);
+        }
+    }
+
     return(        
         <div>
             <nav>
@@ -22,7 +53,7 @@ const Header = () => {
                                 ) : (
                                     <li><Link to='/mis-cursos'>Mis Cursos</Link></li>
                                 )}
-                            <li><Link to='/logout'>Cerrar sesión</Link></li>                                                   
+                            <li><button onClick={handleLogout}>Cerrar sesión</button></li>                                                   
                         </div>
                         </>
                     )}
