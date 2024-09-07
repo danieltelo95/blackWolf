@@ -1,15 +1,25 @@
-// src/store/reducers/userReducer.js
-const initialState = null;
+import { createSlice } from "@reduxjs/toolkit";
 
-const userReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'SET_USER':
-      return action.payload;
-    case 'CLEAR_USER':
-      return null;
-    default:
-      return state;
-  }
+const initialState = {
+  user: null,
+  role: null,
 };
 
-export default userReducer;
+const userslice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload.user;
+      state.role = action.payload.role;
+    },
+    clearUser: (state) => {
+      state.user = null;
+      state.role = null;
+    }
+  }
+})
+
+export const { setUser, clearUser } = userslice.actions;
+
+export default userslice.reducer;

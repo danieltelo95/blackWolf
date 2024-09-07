@@ -5,6 +5,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
 import './Signup.css'
 
+const adminEmail = 'admin@example.com';
+
 const SignUpForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,6 +25,7 @@ const SignUpForm = () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
+            const role = email === adminEmail ? 'admin' : 'user'
 
             // Agregar información del usuario en Firestore
             await setDoc(doc(db, 'users', user.uid), {
@@ -31,7 +34,7 @@ const SignUpForm = () => {
             });
             console.log("Registro Exitoso: ", user);
             
-            navigate('/'); // Redirigir a la página principal u otra página
+            navigate('/login'); // Redirigir al login
         } catch (error) {
             setError(error.message);
         }

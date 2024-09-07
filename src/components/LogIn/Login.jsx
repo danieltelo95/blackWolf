@@ -1,18 +1,27 @@
 import React, {useState} from "react";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/reducer/userReducer";
 import { auth, signInWithEmailAndPassword} from '../../firebase/firebase'
 import './Login.css'
+
+const adminEmail = 'admin@example.com';
 
 const LoginForm = () => {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const dispatch = useDispatch();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user
+            const role = user.email === adminEmail ? 'admin' : 'user';
             console.log('logged in: ', userCredential.user);
+
+            dispatch(setUser({user, role}))
             
         } catch (error) {
             setError(error.message);
