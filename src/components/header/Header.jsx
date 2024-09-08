@@ -48,7 +48,7 @@ const Header = () => {
                                 {role === 'admin' ? (
                                     <>
                                         <li><Link to='/cursos'>Cursos</Link></li>
-                                        <li><Link to='/admin-panel'>Panel de Administrador</Link></li>
+                                        <li><Link to='/adminpanel'>Panel de Administrador</Link></li>
                                     </>
                                 ) : (
                                     <li><Link to='/mis-cursos'>Mis Cursos</Link></li>
@@ -60,6 +60,7 @@ const Header = () => {
                     {!user && (
                         <div className="col-span-2 col-start-3 row-start-2 flex justify-around list-none text-slate-200">
                             <li>Sobre mí</li>
+                            <li><Link to="/">Inicio</Link></li>
                             <li><Link to='/login'>Iniciar sesión</Link></li>
                             <li><Link to='/signup'>Registrarse</Link></li>
                         </div>               

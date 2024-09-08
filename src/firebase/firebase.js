@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore'
-
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyBYuhfSTG0N9mPqTsDSoVjU-9B8nK5yZSY",
   authDomain: "blackwolf-c3f7c.firebaseapp.com",
@@ -15,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -28,4 +29,4 @@ const signInWithGoogle = async () => {
   }
 }
 
-export { auth, db, signInWithEmailAndPassword, signInWithGoogle };
+export { auth, db, signInWithEmailAndPassword, signInWithGoogle, storage };

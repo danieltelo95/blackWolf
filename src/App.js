@@ -6,6 +6,7 @@ import SignUpForm from './components/SignUp/Signup';
 import LoginForm from './components/LogIn/Login';
 import './index.css';
 import './App.css'
+import Admincourses from './components/AdminPanel/Admincourses/Courses';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/signup' element={<SignUpForm />} />
+        <Route path='/adminpanel' element={<Admincourses />} />
       </Routes>
     </Router>  
   );
