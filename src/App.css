@@ -30,11 +30,30 @@
 
 body {
   min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
-  background-image: linear-gradient(to bottom, #232232, #212130, #1e1f2d, #1c1e2b, #1a1c28, #171b27, #141b25, #111a23, #0d1a21, #0b191e, #0a191a, #0a1817);
-  background-repeat: no-repeat;
+  background: linear-gradient(315deg, rgb(4, 5, 60) 3%, rgb(4, 5, 60) 38%, rgb(55, 68, 209) 68%, rgb(25, 32, 96) 98%);  background-repeat: no-repeat;
   background-size: cover;
   margin: 0; /* Elimina los márgenes por defecto del body */
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  filter: brightness(1.4);
 }
+
+/* Configuración de las olas */
+.wave {
+    background: rgba(27, 1, 1, 0.25);
+    border-radius: 100% 10% 0 0;
+    position: fixed;
+    width: 150%;
+    height: 15em;
+    transform: translate3d(0, 0, 0);
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+   
+}
+
+
 
 @keyframes App-logo-spin {
   from {
