@@ -1,0 +1,34 @@
+/* Estilo de los botones del Header */
+.header-button {
+    border: none;
+    background: none;
+    position: relative; /* Asegura que los pseudoelementos se posicionen correctamente */
+    padding: 0; /* Elimina el padding para ver mejor la animación */
+}
+
+/* Pseudoelemento ::before */
+.header-button::before,
+.header-button::after {
+    content: ''; /* Necesario para que se muestren */
+    width: 0;
+    height: 2px;
+    background: #00ccff7f;
+    position: absolute; /* Posiciona el pseudoelemento sobre el botón */
+    transition: 0.8s;
+}
+
+.header-button::before {
+    bottom: 0;
+    left: 0;
+}
+
+.header-button::after {
+    top: 0;
+    right: 0;
+}
+
+/* Animación en hover */
+.header-button:hover::before,
+.header-button:hover::after {
+    width: 50%;
+}

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { clearUser, setUser } from "../../store/reducer/userReducer";
 import { onAuthStateChanged } from "firebase/auth";
+import "./Header.css"
 
 const Header = () => {
 
@@ -42,27 +43,31 @@ const Header = () => {
             <nav>
                     {user && (
                         <>
-                        <div className="row-start-2 flex justify-around list-none text-slate-200">
+                        <div className="row-start-2 flex justify-around list-none text-slate-200 mt-4">
                         <div className="grid grid-cols-4 grid-rows-2 gap-0"></div>
-                            <li><Link to="/">Inicio</Link></li>
+                            <li><button><Link to="/">Inicio</Link></button></li>
                                 {role === 'admin' ? (
                                     <>
-                                        <li><Link to='/cursos'>Cursos</Link></li>
-                                        <li><Link to='/adminpanel'>Panel de Administrador</Link></li>
+                                        <li><button className="header-button"><Link to='/cursos'>Cursos</Link></button></li>
+                                        <li><button className="header-button"><Link to='/adminpanel'>Panel de Administrador</Link></button></li>
                                     </>
                                 ) : (
-                                    <li><Link to='/mis-cursos'>Mis Cursos</Link></li>
+                                    <li><button><Link to='/mis-cursos'>Mis Cursos</Link></button></li>
                                 )}
                             <li><button onClick={handleLogout}>Cerrar sesión</button></li>                                                   
                         </div>
                         </>
                     )}
                     {!user && (
-                        <div className="col-span-2 col-start-3 row-start-2 flex justify-around list-none text-slate-200">
-                            <li>Sobre mí</li>
-                            <li><Link to="/">Inicio</Link></li>
-                            <li><Link to='/login'>Iniciar sesión</Link></li>
-                            <li><Link to='/signup'>Registrarse</Link></li>
+                        <div className="col-span-2 col-start-3 row-start-2 flex justify-between list-none text-slate-200 mt-6 px-12">
+                            <div className="flex space-x-8">
+                                <li><button className="header-button">Sobre mí</button></li>
+                                <li><button><Link to="/">Inicio</Link></button></li>
+                            </div>
+                            <div className="flex space-x-8">
+                                <li><button className="header-button"><Link to='/login'>Iniciar sesión</Link></button></li>
+                                <li><button className="header-button"><Link to='/signup'>Registrarse</Link></button></li>
+                            </div>
                         </div>               
                     )}
             </nav>
