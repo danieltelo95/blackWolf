@@ -42,25 +42,25 @@ const SignUpForm = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
-            <h2 className="text-2x1 font-bold mb-4">Registrarse</h2>
+            <h2 className="text-custom text-2xl font-bold mb-4">Registrarse</h2>
             {error && <p>{error}</p>}
             <div></div>
             <form onSubmit={handleSignUp} className="glass-effect w-full max-w-sm">
                 <div className="flex flex-col mb-4 w-full">
-                <label htmlFor="email" className="block text-gray-500 font-bold mb-1">Correo electrónico</label>
+                <label htmlFor="email" className="block text-white font-bold mb-1">Correo electrónico</label>
                     <input
                         type="email"
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:bg-white focus:border-cyan-200"
                     />
                 </div>
                 <div className='flex flex-col mt-4 mb-4 w-full'>
                     <label 
                     htmlFor="password" 
-                    className="block text-gray-500 font-bold mb-1">
+                    className="block text-white font-bold mb-1">
                         Contraseña
                     </label>
                     <input
@@ -69,13 +69,13 @@ const SignUpForm = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="bg-gray-200 appearance/none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        className="bg-gray-200 appearance/none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:bg-white focus:border-cyan-200"
                     />
                 </div>
                 <div className='flex flex-col mt-4 mb-4'>
                     <label 
                     htmlFor="confirmPassword"
-                    className="block text-gray-500 font-bold mb-1">
+                    className="block text-white font-bold mb-1">
                         Confirmar contraseña
                     </label>
                     <input
@@ -84,7 +84,7 @@ const SignUpForm = () => {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
-                        className="bg-gray-200 appearance/none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        className="bg-gray-200 appearance/none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:bg-white focus:border-cyan-200"
                     />
                 </div>
                 <div className='flex-col mb-6'></div>

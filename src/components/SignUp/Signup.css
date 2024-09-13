@@ -35,3 +35,8 @@
     border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
     padding: 2rem; /* Espaciado interno */
 }
+
+.text-custom {
+    color: white;
+    text-shadow: 0 0 10px #3d0826, 0 0 20px #3d0826, 0 0 60px #3d0826;
+}

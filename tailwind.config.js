@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
@@ -6,14 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#6B46C1', // Un tono púrpura, ideal para temas místicos.
-        secondary: '#D53F8C', // Un tono rosa/magenta para un contraste atractivo.
-        tertiary: '#ECC94B', // Un amarillo suave, perfecto para detalles o acentos.
+        primary: '#ffffff', // Color blanco para títulos
+        secondary: '#D53F8C', // Color rosa/magenta
+        tertiary: '#e0f2fe', // Color cyan-200
       },
       fontFamily: {
-        heading: ['Playfair Display', 'serif'], // Para títulos, que den un aspecto elegante y clásico.
-        body: ['Poppins', 'sans-serif'], // Para el cuerpo del texto, moderno y fácil de leer.
+        heading: ['Playfair Display', 'serif'], // Para títulos
+        body: ['Poppins', 'sans-serif'], // Para el cuerpo del texto
       },
     },
   },
+  plugins: [],
 }
