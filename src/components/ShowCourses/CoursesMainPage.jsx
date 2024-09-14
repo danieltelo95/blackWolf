@@ -1,48 +1,47 @@
 import React, { useEffect, useState } from "react";
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, listAll, getDownloadURL, getMetadata } from "firebase/storage";
+import { db } from '../../firebase/firebase';
+import './CoursesMainPage.css';
+import { collection, getDocs } from "firebase/firestore";
 
 const CoursesMainPage = () => {
   const [courses, setCourses] = useState([]);
-  
-  // Asegúrate de configurar el storage correctamente
-  const storage = getStorage(undefined, 'gs://blackwolf-c3f7c.appspot.com'); // O usa getStorage(undefined, "gs://nombre-de-tu-bucket")
 
   useEffect(() => {
     const fetchCourses = async () => {
-      // Referencia a la carpeta "courses/" en tu Storage
-      const storageRef = ref(storage, "cursos/");
-      try {
-        const result = await listAll(storageRef);
-        console.log("result: ", result); // Verifica que la consulta está devolviendo datos
+      const coursesCollecionRef = collection(db, 'cursos')
 
-        // Obtener URLs de los archivos
-        const courseUrls = await Promise.all(
-          result.items.map(async (itemRef) => {
-            const url = await getDownloadURL(itemRef);
-            return {
-              name: itemRef.name,
-              url: url,
-            };
-          })
-        );
-        setCourses(courseUrls);
+      try {
+        // Obtener URLs de los archivos y metadatos
+        const snapshot = await getDocs(coursesCollecionRef);
+        const coursesData = snapshot.docs.map(doc => ({
+            ...doc.data(),
+            id: doc.id
+        }))
+        setCourses(coursesData);
       } catch (error) {
         console.error("Error al obtener los cursos: ", error);
       }
     };
     fetchCourses();
-  }, [storage]);
+  }, []);
 
   return (
     <div>
-      <h1>Cursos Disponibles</h1>
+      <h1 className="text-xl font-bold mb-4 mt-4">Cursos Disponibles</h1>
       {courses.length === 0 ? (
         <p>No hay cursos disponibles</p>
       ) : (
-        <ul>
+        <ul className="flex flex-wrap gap-4">
           {courses.map((course, index) => (
-            <li key={index}>
-              {course.name} - <a href={course.url} target="_blank" rel="noopener noreferrer">Ver curso</a>
+            <li className="card flex-none w-64 p-4 border rounded-lg shadow-md" key={index}>
+                <div className="align">
+                    <span className="red"></span>
+                    <span className="yellow"></span>
+                    <span className="green"></span>
+                </div>
+                <p className="text-lg font-medium">{course.title}</p>
+                <p>{course.description}</p>
             </li>
           ))}
         </ul>

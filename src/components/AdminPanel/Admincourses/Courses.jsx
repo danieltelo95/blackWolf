@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { db, storage } from '../../../firebase/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';  // Importa el servicio de autenticación
+import { getAuth } from 'firebase/auth';
 
 const Admincourses = () => {
-
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [file, setFile] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleFilechange = (e) => {
         setFile(e.target.files[0]);
@@ -17,62 +18,95 @@ const Admincourses = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
 
-        // Verificar si el usuario está autenticado
-        const auth = getAuth();  // Obtener instancia de autenticación
-        const user = auth.currentUser;  // Obtener el usuario actual        
+        const auth = getAuth();
+        const user = auth.currentUser;
 
         if (!user) {
-            alert('Debes estar autenticado para subir un curso.');  // Si no está autenticado, mostrar alerta
-            return;  // Salir de la función para no proceder con la subida
+            setError('Debes estar autenticado para subir un curso.');
+            setLoading(false);
+            return;
+        }
+
+        if (!title || !description || !price || !file) {
+            setError('Todos los campos deben ser completados.');
+            setLoading(false);
+            return;
         }
 
         try {
             let fileURL = '';
             if (file) {
                 const storageRef = ref(storage, `cursos/${file.name}`);
-                const snapshot = await uploadBytes(storageRef, file);
+                const metadata = {
+                    customMetadata: {
+                        description,
+                        title,
+                        price,
+                    },
+                };
+                const snapshot = await uploadBytes(storageRef, file, metadata);
                 fileURL = await getDownloadURL(snapshot.ref);
             }
 
-            // Agregar el documento a Firestore
             await addDoc(collection(db, 'cursos'), {
                 title,
                 description,
                 price,
                 fileURL,
                 createAt: new Date(),
-                userId: user.uid  // Puedes registrar el ID del usuario que sube el curso
+                userId: user.uid
             });
 
             alert('Curso subido correctamente');
-
+            setTitle('');
+            setDescription('');
+            setPrice('');
+            setFile(null);
         } catch (error) {
-            console.error('Error al subir el curso: ', error);
+            setError('Error al subir el curso: ' + error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4 p-4 border rounded-lg shadow-md">
+            {error && <p className="text-red-500">{error}</p>}
             <input 
                 type="text"
                 placeholder="Titulo del curso"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                className="w-full p-2 border rounded"
             />
             <textarea
                 placeholder="Descripción del curso"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                className="w-full p-2 border rounded"
             />
             <input
                 type="number"
                 placeholder="Precio"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                className="w-full p-2 border rounded"
             />
-            <input type="file" onChange={handleFilechange} />
-            <button type="submit">Subir curso</button>
+            <input 
+                type="file" 
+                onChange={handleFilechange}
+                className="w-full p-2 border rounded"
+            />
+            <button 
+                type="submit" 
+                disabled={loading}
+                className={`w-full p-2 border rounded ${loading ? 'bg-gray-400' : 'bg-blue-500 text-white'}`}
+            >
+                {loading ? 'Subiendo...' : 'Subir curso'}
+            </button>
         </form>
     );
 };
