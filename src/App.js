@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/mainpage/mainpage';
 import Header from './components/header/Header';
+import CoursesMainPage from './components/ShowCourses/CoursesMainPage';
 import SignUpForm from './components/SignUp/Signup';
 import LoginForm from './components/LogIn/Login';
 import './index.css';

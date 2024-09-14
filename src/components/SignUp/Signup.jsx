@@ -31,9 +31,7 @@ const SignUpForm = () => {
             await setDoc(doc(db, 'users', user.uid), {
                 email: user.email,
                 role: 'user', // Rol por defecto, puedes cambiarlo según tus necesidades
-            });
-            console.log("Registro Exitoso: ", user);
-            
+            });            
             navigate('/login'); // Redirigir al login
         } catch (error) {
             setError(error.message);

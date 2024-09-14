@@ -20,10 +20,7 @@ const Admincourses = () => {
 
         // Verificar si el usuario está autenticado
         const auth = getAuth();  // Obtener instancia de autenticación
-        console.log("authenticacion: ", auth);                
-        const user = auth.currentUser;  // Obtener el usuario actual
-        console.log("user: ", user);
-        
+        const user = auth.currentUser;  // Obtener el usuario actual        
 
         if (!user) {
             alert('Debes estar autenticado para subir un curso.');  // Si no está autenticado, mostrar alerta
@@ -34,11 +31,8 @@ const Admincourses = () => {
             let fileURL = '';
             if (file) {
                 const storageRef = ref(storage, `cursos/${file.name}`);
-                console.log("storageRef: ", storageRef);                                
                 const snapshot = await uploadBytes(storageRef, file);
-                console.log("snapshot: ", snapshot);                
                 fileURL = await getDownloadURL(snapshot.ref);
-                console.log("fileURL: ", fileURL);                
             }
 
             // Agregar el documento a Firestore
@@ -51,7 +45,6 @@ const Admincourses = () => {
                 userId: user.uid  // Puedes registrar el ID del usuario que sube el curso
             });
 
-            console.log("addDoc: ", addDoc);            
             alert('Curso subido correctamente');
 
         } catch (error) {

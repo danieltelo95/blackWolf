@@ -1,10 +1,12 @@
 import React from 'react';
-import Header from '../../components/header/Header';
+import CoursesMainPage from '../../components/ShowCourses/CoursesMainPage';
 
 
 const MainPage = () => {
   return (
-    <div></div>
+    <div>
+      <CoursesMainPage />
+    </div>
   );
 };
 
