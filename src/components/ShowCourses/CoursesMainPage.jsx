@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getStorage, ref, listAll, getDownloadURL, getMetadata } from "firebase/storage";
+import Slider from "react-slick"; // Importamos react-slick
 import { db } from '../../firebase/firebase';
 import './CoursesMainPage.css';
 import { collection, getDocs } from "firebase/firestore";
@@ -26,25 +26,51 @@ const CoursesMainPage = () => {
     fetchCourses();
   }, []);
 
+  // Configuración del carrusel
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // Mostramos 3 cursos a la vez
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Pantallas grandes
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768, // Pantallas medianas (tablets)
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480, // Pantallas pequeñas (móviles)
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4 mt-4">Cursos Disponibles</h1>
+    <div className="flex flex-col items-center mt-4">
+      <h1 className="text-2xl text-white font-bold mb-8 mt-8">Cursos Disponibles</h1>
       {courses.length === 0 ? (
         <p>No hay cursos disponibles</p>
       ) : (
-        <ul className="flex flex-wrap gap-4">
+        <Slider {...settings} className="w-full max-w-6xl"> {/* Añadimos el carrusel */}
           {courses.map((course, index) => (
-            <li className="card flex-none w-64 p-4 border rounded-lg shadow-md" key={index}>
-                <div className="align">
-                    <span className="red"></span>
-                    <span className="yellow"></span>
-                    <span className="green"></span>
-                </div>
-                <p className="text-lg font-medium">{course.title}</p>
-                <p>{course.description}</p>
-            </li>
+            <div key={index} className="p-4">
+              <li className="card flex-none border rounded-xl text-center mx-auto">
+              <p className="text-2xl font-bold mb-4 mt-4">{course.title}</p> {/* Título más grande y en negrita */}
+              <p>{course.description}</p>
+              </li>
+            </div>
           ))}
-        </ul>
+        </Slider>
       )}
     </div>
   );
