@@ -23,6 +23,7 @@
   position: absolute;
   inset: 0;
   margin: auto;
+  left: auto;
   width: calc(100% + 0.6rem); /* Usa 'calc' para mantener proporciones */
   height: calc(100% + 0.6rem);
   border-radius: 1rem;
