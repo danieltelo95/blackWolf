@@ -64,7 +64,7 @@ const CoursesMainPage = () => {
         <Slider {...settings} className="w-full max-w-6xl"> {/* Añadimos el carrusel */}
           {courses.map((course, index) => (
             <div key={index} className="p-4">
-              <li className="card flex-none border rounded-xl text-center mx-auto">
+              <li className="tarjeta flex-none border rounded-xl text-center mx-auto">
               <p className="text-2xl font-bold mb-4 mt-4">{course.title}</p> {/* Título más grande y en negrita */}
               <p>{course.description}</p>
               </li>

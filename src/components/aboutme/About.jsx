@@ -1,47 +1,34 @@
 import React from 'react';
-import pic from '../../assets/images/andres.jpg'
+import andres from '../../assets/images/andres.jpg'
 
 const About = () => {
     return (
-        <div id="about" className="relative bg-white overflow-hidden mt-16">
-            <div className="max-w-7xl mx-auto">
-                <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-                    <svg 
-                        className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" 
-                        fill="currentColor" 
-                        viewBox="0 0 100 100" 
-                        preserveAspectRatio="none" 
-                        aria-hidden="true"
-                    >
-                        <polygon points="50,0 100,0 50,100 0,100"></polygon>
-                    </svg>
-
-                    <div className="pt-1"></div>
-
-                    <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                        <div className="sm:text-center lg:text-left">
-                            <h2 className="my-6 text-2xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl">
-                                About me
-                            </h2>
-
-                            <p>
-                                Donec porttitor, enim ut dapibus lobortis, lectus sem tincidunt dui, eget ornare lectus ex non
-                                libero. Nam rhoncus diam ultrices porttitor laoreet. Ut mollis fermentum ex, vel viverra lorem
-                                volutpat sodales. In ornare porttitor odio sit amet laoreet. Sed laoreet, nulla a posuere
-                                ultrices, purus nulla tristique turpis, hendrerit rutrum augue quam ut est. Fusce malesuada
-                                posuere libero, vitae dapibus eros facilisis euismod. Sed sed lobortis justo, ut tincidunt
-                                velit. Mauris in maximus eros.
-                            </p>
-                        </div>
-                    </main>
+        <div id="container" class="p-20 w-auto flex px-24 justify-center relative">
+    
+            <div id="container" class="p-20 sm:p-16 md:p-20 lg:p-24 xl:p-20 w-auto flex flex-col md:flex-row px-4 sm:px-8 md:px-24 lg:px-24 xl:px-24 relative">
+                <div class="mr-10">
+                    <img
+                    class="rounded-lg min-w-[100px] w-full h-auto md:w-auto md:h-auto"
+                    src={andres}
+                    alt="image of myself"
+                    />
                 </div>
-            </div>
-            <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                <img 
-                    className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full" 
-                    src={pic} 
-                    alt="About me"
-                />
+                <div class="w-full sm:w-[70%] md:w-[60%] lg:w-[50%]">
+                    <h1 class="text-white font-bold text-3xl mt-6 mb-8">
+                        Hey I'm Andrew
+                    </h1>
+
+                    <p class="text-white w-full sm:w-[35rem] md:w-[30rem] lg:w-[25rem] mb-10">
+                    I'm Andrew, and I've been captivated by the esoteric arts since I was a child. 
+                    My fascination with the mysteries of the universe started early, and I spent my
+                    youth exploring astrology, mysticism, and spiritual practices.
+                    Tarot quickly became my favorite tool, and over the years,
+                    I've developed a deep understanding of the cards. 
+                    I blend intuition with my knowledge of esoteric traditions to offer guidance and insight.
+                    I'm always excited to share what I've learned and connect with those seeking 
+                    clarity and understanding in their lives.
+                    </p>                  
+                </div>
             </div>
         </div>
     );

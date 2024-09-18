@@ -8,6 +8,7 @@ import LoginForm from './components/LogIn/Login';
 import './index.css';
 import './App.css'
 import Admincourses from './components/AdminPanel/Admincourses/Courses';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<SignUpForm />} />
         <Route path='/adminpanel' element={<Admincourses />} />
       </Routes>
+      <Footer />
     </Router>  
   );
 }
