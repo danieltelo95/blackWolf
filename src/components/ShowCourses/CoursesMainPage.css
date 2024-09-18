@@ -1,5 +1,6 @@
 @import "slick-carousel/slick/slick.css"; 
 @import "slick-carousel/slick/slick-theme.css";
+
 /* From Uiverse.io by Pravins01 */ 
 .tarjeta {
   position: relative;
@@ -21,10 +22,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  left: -0.5rem; /* Ajusta el desplazamiento relativo */
   margin: auto;
-  width: calc(100% + 0.9rem); /* Usa 'calc' para mantener proporciones */
-  height: calc(100% + 0.9rem);
+  width: calc(100% + 0.6rem); /* Usa 'calc' para mantener proporciones */
+  height: calc(100% + 0.6rem);
   border-radius: 1rem;
   background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
   z-index: -10;
