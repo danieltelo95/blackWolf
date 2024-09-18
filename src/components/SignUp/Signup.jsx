@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
 import './Signup.css'
 
-const adminEmail = 'admin@example.com';
+const adminEmail = process.env.REACT_APP_ADMIN_EMAIL;
 
 const SignUpForm = () => {
     const [email, setEmail] = useState('');

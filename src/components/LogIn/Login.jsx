@@ -5,7 +5,7 @@ import { setUser } from "../../store/reducer/userReducer";
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from '../../firebase/firebase';
 import './Login.css';
 
-const adminEmail = 'admin@example.com';
+const adminEmail = process.env.REACT_APP_ADMIN_EMAIL;
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
