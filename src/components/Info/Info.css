@@ -1,0 +1,88 @@
+.container {
+    color: #ffffff;
+    perspective: 50rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.cards {
+    width: 18rem;
+    height: 30rem;
+    background: transparent;
+    border-radius: 1rem;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    position: absolute;
+    width: 60%;
+    background-color: transparent;
+    top: 0;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0px 0px 10px 5px rgba(205, 188, 208, 0.7);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%; /* Asegúrate de que la imagen ocupe toda la altura */
+    border-radius: 1rem 1rem 1rem 1rem; /* Mantén el borde redondeado en la parte superior */
+    object-fit: cover; /* Asegúrate de que la imagen cubra todo el contenedor sin distorsión */
+}
+
+.image-container {
+    height: 80%; /* Ajusta este valor para darle más espacio a la imagen */
+    overflow: hidden; /* Oculta el exceso */
+    position: absolute; /* Asegura que los elementos dentro se posicionen correctamente */
+    margin-top: 5rem;
+}
+
+
+.cards-top-para {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Aplicamos la animación de rotación solo en la tarjeta sobre la cual se hace hover */
+.cards:hover {
+    cursor: pointer;
+    transform: rotateX(180deg) rotateZ(-180deg);
+}
+
+.front, .back {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 0.7rem 0.4rem rgba(124, 108, 127, 0.7);
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.back {
+    background-color: black;
+    transform: rotateX(180deg) rotateZ(-180deg);
+}
+
+.heading {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.follow {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+  
