@@ -21,10 +21,6 @@
     margin: 0 1rem; /* Agregar espacio entre tarjetas */
   }
 
-  
-  
-
-
 .card-top {
     display: flex;
     align-items: center;
@@ -80,13 +76,14 @@
 
 
 .back {
-    background-color: black;
+    background: rgb(67,65,106);
+    background: linear-gradient(320deg, rgba(67,65,106,1) 14%, rgba(13,27,64,1) 42%, rgba(53,53,176,1) 71%, rgba(0,212,255,1) 98%); 
     transform: rotateX(180deg) rotateZ(-180deg);
 }
 
 .heading {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: smaller;
+    font-weight: 400;
 }
 
 .follow {

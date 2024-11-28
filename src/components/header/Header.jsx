@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { clearUser, setUser } from "../../store/reducer/userReducer";
 import { onAuthStateChanged } from "firebase/auth";
+import cursosImage from '../../assets/images/curso-online.png'
+import cartasImage from '../../assets/images/carta-de-tarot.png'
 import "./Header.css"
 
 const Header = () => {
@@ -41,8 +43,27 @@ const Header = () => {
     return(        
         <div>
             <nav>
-                <div className="row-start-2 flex justify-around list-none text-slate-200 mt-4">
-                    <div className="grid grid-cols-4 grid-rows-2 gap-0"></div>
+                    <div className="grid grid-cols-5 grid-rows-1 gap-0 mt-4">
+                        <div className="col-start-3">
+                            <button className="option-button">
+                                <img
+                                    src={cursosImage}
+                                    alt="cursos"
+                                />
+                                Cursos
+                            </button>
+                        </div>
+                        <div className="col-start-4">
+                            <button className="option-button">
+                                <img
+                                    src={cartasImage}
+                                    alt="cartas"
+                                />
+                                Cartas
+                            </button>
+                        </div>
+                    </div>
+    
                     {/* <li><button><Link to="/">Inicio</Link></button></li> */}
                     {/* {user ? (
                         <>
@@ -61,8 +82,7 @@ const Header = () => {
                             <li><button className="header-button"><Link to='/login'>Iniciar sesión</Link></button></li>
                             <li><button className="header-button"><Link to='/signup'>Registrarse</Link></button></li>
                         </>
-                    )} */}
-                </div>               
+                    )} */}                            
             </nav>
         </div>
     );
