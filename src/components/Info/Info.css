@@ -1,21 +1,29 @@
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
 .container {
     color: #ffffff;
     perspective: 50rem;
     display: flex;
     flex-direction: row;
-    gap: 4rem;
     justify-content: center;
 }
 
 .cards {
-    width: 18rem;
-    height: 30rem;
+    width: 20rem;
+    height: 25rem;
     background: transparent;
     border-radius: 1rem;
     position: relative;
     transition: transform 1500ms;
     transform-style: preserve-3d;
-}
+    transform-origin: center;
+    margin: 0 1rem; /* Agregar espacio entre tarjetas */
+  }
+
+  
+  
+
 
 .card-top {
     display: flex;
@@ -39,12 +47,11 @@
 }
 
 .image-container {
-    height: 80%; /* Ajusta este valor para darle más espacio a la imagen */
+    height: 70%; /* Ajusta este valor para darle más espacio a la imagen */
     overflow: hidden; /* Oculta el exceso */
     position: absolute; /* Asegura que los elementos dentro se posicionen correctamente */
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
-
 
 .cards-top-para {
     font-size: 1rem;
@@ -58,7 +65,7 @@
 }
 
 .front, .back {
-    height: 100%;
+    height: 90%; /* Ocupan todo el espacio de la tarjeta */
     width: 100%;
     border-radius: 1rem;
     box-shadow: 0px 0px 0.7rem 0.4rem rgba(124, 108, 127, 0.7);
@@ -68,7 +75,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
 }
+
 
 .back {
     background-color: black;
@@ -85,4 +94,5 @@
     font-weight: 500;
 }
 
+  
   

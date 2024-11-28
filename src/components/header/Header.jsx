@@ -43,8 +43,8 @@ const Header = () => {
             <nav>
                 <div className="row-start-2 flex justify-around list-none text-slate-200 mt-4">
                     <div className="grid grid-cols-4 grid-rows-2 gap-0"></div>
-                    <li><button><Link to="/">Inicio</Link></button></li>
-                    {user ? (
+                    {/* <li><button><Link to="/">Inicio</Link></button></li> */}
+                    {/* {user ? (
                         <>
                             {role === 'admin' ? (
                                 <>
@@ -61,7 +61,7 @@ const Header = () => {
                             <li><button className="header-button"><Link to='/login'>Iniciar sesión</Link></button></li>
                             <li><button className="header-button"><Link to='/signup'>Registrarse</Link></button></li>
                         </>
-                    )}
+                    )} */}
                 </div>               
             </nav>
         </div>
