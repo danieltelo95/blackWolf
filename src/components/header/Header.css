@@ -1,3 +1,11 @@
+.navmorphism {
+    background: rgba(14, 6, 88, 0.68);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .option-button {
     display: flex; /* Alinea la imagen y el texto horizontalmente */
     align-items: center; /* Centra verticalmente la imagen con el texto */
@@ -11,6 +19,7 @@
     text-shadow: none;
     cursor: pointer;
     transition: 1s ease;
+    margin-bottom: 0.8rem;
 }
 
 .option-button:hover,
@@ -33,3 +42,6 @@
     transform: scale(1.1);
     filter: invert(1); /* Aumenta el brillo al pasar el mouse */
 }
+
+
+  

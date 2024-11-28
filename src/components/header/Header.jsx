@@ -41,9 +41,9 @@ const Header = () => {
     }
 
     return(        
-        <div>
+        <header className="navmorphism p-0.5 sticky top-0 z-50">
             <nav>
-                    <div className="grid grid-cols-5 grid-rows-1 gap-0 mt-4">
+                    <div className="grid grid-cols-5 grid-rows-1 mt-4">
                         <div className="col-start-3">
                             <button className="option-button">
                                 <img
@@ -63,29 +63,30 @@ const Header = () => {
                             </button>
                         </div>
                     </div>
-    
-                    {/* <li><button><Link to="/">Inicio</Link></button></li> */}
-                    {/* {user ? (
-                        <>
-                            {role === 'admin' ? (
-                                <>
-                                    <li><button className="header-button"><Link to='/cursos'>Cursos</Link></button></li>
-                                    <li><button className="header-button"><Link to='/adminpanel'>Panel de Administrador</Link></button></li>
-                                </>
-                            ) : (
-                                <li><button><Link to='/mis-cursos'>Mis Cursos</Link></button></li>
-                            )}
-                            <li><button onClick={handleLogout}>Cerrar sesión</button></li>
-                        </>
-                    ) : (
-                        <>
-                            <li><button className="header-button"><Link to='/login'>Iniciar sesión</Link></button></li>
-                            <li><button className="header-button"><Link to='/signup'>Registrarse</Link></button></li>
-                        </>
-                    )} */}                            
             </nav>
-        </div>
+        </header>
     );
 }
 
 export default Header;
+
+
+                {/* <li><button><Link to="/">Inicio</Link></button></li> */}
+                {/* {user ? (
+                    <>
+                        {role === 'admin' ? (
+                            <>
+                                <li><button className="header-button"><Link to='/cursos'>Cursos</Link></button></li>
+                                <li><button className="header-button"><Link to='/adminpanel'>Panel de Administrador</Link></button></li>
+                            </>
+                        ) : (
+                            <li><button><Link to='/mis-cursos'>Mis Cursos</Link></button></li>
+                        )}
+                        <li><button onClick={handleLogout}>Cerrar sesión</button></li>
+                    </>
+                ) : (
+                    <>
+                        <li><button className="header-button"><Link to='/login'>Iniciar sesión</Link></button></li>
+                        <li><button className="header-button"><Link to='/signup'>Registrarse</Link></button></li>
+                    </>
+                )} */}                            

@@ -21,7 +21,7 @@ const Footer = () => {
                 <div class="glass"></div>
                 <div class="content">
                     <span class="title">ANDREW TAROT</span>
-                    <span class="text">Tarot, cartas, vida y muerte</span>
+                    <span class="text">Tarot, vida, muerte</span>
                 </div>
                 <div class="bottom">                    
                     <div class="social-buttons-container">
