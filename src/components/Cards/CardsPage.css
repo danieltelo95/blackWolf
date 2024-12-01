@@ -1,0 +1,164 @@
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
+.container {
+    color: #ffffff;
+    perspective: 50rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tarotcard {
+    width: 20rem;
+    height: 25rem;
+    background: transparent;
+    border-radius: 1rem;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    margin: 0 1rem; /* Agregar espacio entre tarjetas */
+  }
+
+.tarotcard-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    position: absolute;
+    width: 60%;
+    background-color: transparent;
+    top: 0;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0px 0px 10px 5px rgba(205, 188, 208, 0.7);
+}
+
+.tarotcard-image {
+    width: 100%;
+    height: 100%; /* Asegúrate de que la imagen ocupe toda la altura */
+    border-radius: 1rem 1rem 1rem 1rem; /* Mantén el borde redondeado en la parte superior */
+    object-fit: cover; /* Asegúrate de que la imagen cubra todo el contenedor sin distorsión */
+}
+
+.tarotcard-container {
+    height: 70%; /* Ajusta este valor para darle más espacio a la imagen */
+    overflow: hidden; /* Oculta el exceso */
+    position: absolute; /* Asegura que los elementos dentro se posicionen correctamente */
+    margin-top: 2rem;
+}
+
+.tarotcard-top-para {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Aplicamos la animación de rotación solo en la tarjeta sobre la cual se hace hover */
+.tarotcard:hover {
+    cursor: pointer;
+    transform: rotateX(180deg) rotateZ(-180deg);
+}
+
+.front, .back {
+    height: 90%; /* Ocupan todo el espacio de la tarjeta */
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 0.7rem 0.4rem rgba(124, 108, 127, 0.7);
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+
+.back {
+    background: rgb(67,65,106);
+    background: linear-gradient(320deg, rgba(67,65,106,1) 14%, rgba(13,27,64,1) 42%, rgba(53,53,176,1) 71%, rgba(0,212,255,1) 98%); 
+    transform: rotateX(180deg) rotateZ(-180deg);
+}
+
+.heading {
+    font-size: smaller;
+    font-weight: 400;
+}
+
+.follow {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cards-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Dos columnas */
+    gap: 0.5rem; /* Espaciado entre las tarjetas */
+    padding: 0;
+    margin-right: 2rem;
+    list-style: none; /* Elimina los estilos de lista */
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .cards-list {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+.card-button {
+    display: inline-flex; /* Alinea la imagen y el texto horizontalmente */
+    align-items: center; /* Centra verticalmente la imagen con el texto */
+    gap: 0.8rem; /* Espacio entre la imagen y el texto */
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: none;
+    cursor: pointer;
+    transition: 1s ease;
+    margin-bottom: 0.8rem;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    background-color: transparent; /* Fondo transparente */
+}
+
+.card-button:hover,
+.card-button:focus {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff77, 0 0 10px #ffffff98, 0 0 20px #ffffff7a;
+    box-shadow: 0 0 20px #008cff, 0 0 50px #008cff,
+        0 0 100px #008cff;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .pagination .active {
+    background-color: #008cff;
+    color: white;
+  }
+  

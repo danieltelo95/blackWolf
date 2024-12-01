@@ -11,6 +11,7 @@ import Admincourses from './components/AdminPanel/Admincourses/Courses';
 import Footer from './components/Footer/Footer';
 import Courses from './components/Courses/Courses';
 import CardsPage from './components/Cards/CardsPage';
+import CardDetail from './components/Cards/CardDetail';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/adminpanel' element={<Admincourses />} />
         <Route path='/courses' element={<Courses />} />
         <Route path='/cards' element={<CardsPage />} />
+        <Route path='/card/:cardName' element={<CardDetail />} />
       </Routes>
       <Footer />
     </Router>  

@@ -19,8 +19,7 @@
 .option-button:focus {
     color: #ffffff7e;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 20px #008cff, 0 0 50px #008cff,
-        0 0 100px #008cff;
+    box-shadow: 0 0 20px #008cff, 0 0 50px #008cff, 0 0 100px #008cff;
 }
 
 .option-button img {
@@ -34,26 +33,4 @@
 .option-button:hover img {
     transform: scale(1.1);
     filter: invert(1); /* Aumenta el brillo al pasar el mouse */
-}
-
-
-.imagen-inicio {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    overflow: hidden; /* Asegura que la imagen quede dentro del contenedor circular */
-    display: inline-block; /* Mantiene el botón como un contenedor ajustado */
-    border: 0.1rem solid #fff; /* Aquí defines el borde, puedes cambiar el color */
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.imagen-inicio img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.imagen-inicio:hover img {
-    transform: scale(1.1);
 }

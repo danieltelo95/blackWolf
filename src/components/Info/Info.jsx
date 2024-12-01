@@ -18,9 +18,7 @@ function Info() {
           }
           const json = await response.json();         
           const data = json.cards.map(card => card)
-          setCards(data)
-          console.log(data);
-          
+          setCards(data)          
         } catch (error) {
           console.error(error.message);
         }

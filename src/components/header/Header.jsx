@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
-import React, {useEffect} from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { clearUser, setUser } from "../../store/reducer/userReducer";
@@ -8,20 +8,19 @@ import { onAuthStateChanged } from "firebase/auth";
 import cursosImage from '../../assets/images/curso-online.png'
 import cartasImage from '../../assets/images/carta-de-tarot.png'
 import andres from '../../assets/images/andres.jpg'
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user, role } = useSelector((state) => state.user || { user: null, role: null });
-    
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
             if (firebaseUser) {
                 // Usuario autenticado
                 const userRole = firebaseUser.email === 'admin@example.com' ? 'admin' : 'user'; 
-                dispatch(setUser({ user: { uid: firebaseUser.uid, email: firebaseUser.email, displayName: firebaseUser.displayName}, role: userRole }));
+                dispatch(setUser({ user: { uid: firebaseUser.uid, email: firebaseUser.email, displayName: firebaseUser.displayName }, role: userRole }));
             } else {
                 // Usuario no autenticado
                 dispatch(clearUser());
@@ -42,29 +41,24 @@ const Header = () => {
     }
 
     return(        
-        <header className="navmorphism p-0.5 sticky top-0 z-50">
-            <nav>
-                <div className="grid grid-cols-5 grid-rows-1 mt-4">
-                    <div className="col-start-2">
-                        <Link to="/courses" className="option-button">
-                            <img src={cursosImage} alt="Cursos" />
-                            <span>Cursos</span>
-                        </Link>
-                    </div>
-                    <div className="col-start-3">
-                        <button className="imagen-inicio">
-                            <Link to="/">
-                                <img src={andres} alt="Inicio" />
-                            </Link>
-                        </button>
-                    </div>
-                    <div className="col-start-4">
-                        <Link to="/cards" className="option-button">
-                            <img src={cartasImage} alt="Cartas" />
-                            <span>Cartas</span>
-                        </Link>
-                    </div>
-                </div>
+        <header className="sticky top-0 z-50 p-4 bg-transparent">
+            <nav className="flex justify-center space-x-40 items-center mx-auto max-w-7xl px-4">
+                {/* Botón de Cursos */}
+                <Link to="/courses" className="flex items-center gap-2 option-button">
+                    <img src={cursosImage} alt="Cursos" />
+                    <span>Cursos</span>
+                </Link>
+
+                {/* Imagen de Inicio */}
+                <Link to="/" className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden border border-white">
+                    <img src={andres} alt="Inicio" className="w-full h-full object-cover transition-transform transform hover:scale-110" />
+                </Link>
+
+                {/* Botón de Cartas */}
+                <Link to="/cards" className="flex items-center gap-2 option-button">
+                    <img src={cartasImage} alt="Cartas" />
+                    <span>Cartas</span>
+                </Link>
             </nav>
         </header>
     );

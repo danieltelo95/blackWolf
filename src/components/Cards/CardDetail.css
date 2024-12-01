@@ -1,0 +1,165 @@
+.details-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Tarjeta y botones en columnas separadas */
+    align-items: center; /* Centra verticalmente la tarjeta y los botones */
+    gap: 1rem; /* Espaciado entre tarjeta y botones */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Elimina los estilos de lista */
+    height: 100vh; /* Asegura que ocupe toda la altura disponible */
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .courses-list {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+
+.detail-card {
+    width: 20rem;
+    height: 25rem;
+    background: transparent;
+    border-radius: 1rem;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    margin: 0 1rem; /* Agregar espacio entre tarjetas */
+  }
+
+.detail-card-top {
+    color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    position: absolute;
+    width: 60%;
+    background-color: transparent;
+    top: 0;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0px 0px 10px 5px rgba(205, 188, 208, 0.7);
+}
+
+.detail-card-image {
+    width: 100%;
+    height: 100%; /* Asegúrate de que la imagen ocupe toda la altura */
+    border-radius: 1rem 1rem 1rem 1rem; /* Mantén el borde redondeado en la parte superior */
+    object-fit: cover; /* Asegúrate de que la imagen cubra todo el contenedor sin distorsión */
+}
+
+.detail-card-container {
+    height: 70%; /* Ajusta este valor para darle más espacio a la imagen */
+    overflow: hidden; /* Oculta el exceso */
+    position: absolute; /* Asegura que los elementos dentro se posicionen correctamente */
+    margin-top: 2rem;
+}
+
+.detail-card-top-para {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center; 
+    justify-content: center;
+    height: 100%;
+}
+
+.buttons-container button {
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: wheat;
+    text-shadow: none;
+    cursor: pointer;
+    transition: 1s ease;
+    margin-bottom: 0.8rem;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    background-color: #007bff;
+    min-width: 10rem;
+}
+
+.buttons-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que el modal esté por encima de otros elementos */
+    animation: fadeIn 0.3s ease-out; /* Animación para hacer que el modal aparezca suavemente */
+}
+
+/* Animación para el fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 30rem;
+    max-width: 90%;
+    position: relative;
+    text-align: center;
+    animation: slideIn 0.3s ease-out; /* Animación para el contenido */
+}
+
+/* Animación para el slideIn */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Botón de cierre */
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #f00; /* Color rojo al pasar el cursor sobre el botón */
+}
+
+/* Texto dentro del modal */
+.modal-content p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-top: 1rem;
+}
