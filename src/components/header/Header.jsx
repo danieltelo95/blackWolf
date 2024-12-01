@@ -7,6 +7,7 @@ import { clearUser, setUser } from "../../store/reducer/userReducer";
 import { onAuthStateChanged } from "firebase/auth";
 import cursosImage from '../../assets/images/curso-online.png'
 import cartasImage from '../../assets/images/carta-de-tarot.png'
+import andres from '../../assets/images/andres.jpg'
 import "./Header.css"
 
 const Header = () => {
@@ -43,26 +44,27 @@ const Header = () => {
     return(        
         <header className="navmorphism p-0.5 sticky top-0 z-50">
             <nav>
-                    <div className="grid grid-cols-5 grid-rows-1 mt-4">
-                        <div className="col-start-3">
-                            <button className="option-button">
-                                <img
-                                    src={cursosImage}
-                                    alt="cursos"
-                                />
-                                Cursos
-                            </button>
-                        </div>
-                        <div className="col-start-4">
-                            <button className="option-button">
-                                <img
-                                    src={cartasImage}
-                                    alt="cartas"
-                                />
-                                Cartas
-                            </button>
-                        </div>
+                <div className="grid grid-cols-5 grid-rows-1 mt-4">
+                    <div className="col-start-2">
+                        <Link to="/courses" className="option-button">
+                            <img src={cursosImage} alt="Cursos" />
+                            <span>Cursos</span>
+                        </Link>
                     </div>
+                    <div className="col-start-3">
+                        <button className="imagen-inicio">
+                            <Link to="/">
+                                <img src={andres} alt="Inicio" />
+                            </Link>
+                        </button>
+                    </div>
+                    <div className="col-start-4">
+                        <Link to="/cards" className="option-button">
+                            <img src={cartasImage} alt="Cartas" />
+                            <span>Cartas</span>
+                        </Link>
+                    </div>
+                </div>
             </nav>
         </header>
     );
