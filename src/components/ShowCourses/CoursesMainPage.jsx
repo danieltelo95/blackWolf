@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick"; // Importamos react-slick
 import { db } from '../../firebase/firebase';
-import './CoursesMainPage.css';
 import { collection, getDocs } from "firebase/firestore";
 
 const CoursesMainPage = () => {
@@ -63,12 +62,16 @@ const CoursesMainPage = () => {
       ) : (
         <Slider {...settings} className="w-full max-w-6xl"> {/* Añadimos el carrusel */}
           {courses.map((course, index) => (
-            <div key={index} className="p-4">
-              <li className="tarjeta flex-none border rounded-xl text-center mx-auto">
-              <p className="text-2xl font-bold mb-4 mt-4">{course.title}</p> {/* Título más grande y en negrita */}
-              <p>{course.description}</p>
-              </li>
+            <li>                            
+            <div key={index} className="container">
+                <div className="box">
+                    <span className="title">{course.title}</span>
+                    <div>
+                        <span>{course.description}</span>                            
+                    </div>
+                </div>
             </div>
+        </li>
           ))}
         </Slider>
       )}
