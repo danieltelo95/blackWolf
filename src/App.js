@@ -27,7 +27,7 @@ function App() {
         <Route path='/cards' element={<CardsPage />} />
         <Route path='/card/:cardName' element={<CardDetail />} />
       </Routes>
-      <Footer />
+      <Footer/>
     </Router>  
   );
 }

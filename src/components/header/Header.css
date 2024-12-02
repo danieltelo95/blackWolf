@@ -1,36 +1,59 @@
-.option-button {
-    display: inline-flex; /* Alinea la imagen y el texto horizontalmente */
-    align-items: center; /* Centra verticalmente la imagen con el texto */
-    gap: 0.8rem; /* Espacio entre la imagen y el texto */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 1rem 4rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  
+  header:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Cambio de fondo al pasar el mouse */
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 100%;
+  }
+  
+  .option-button {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 0.8rem;
     padding: 0.5rem 2rem;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
     color: #ffffffd0;
-    text-shadow: none;
     cursor: pointer;
-    transition: 1s ease;
-    margin-bottom: 0.8rem;
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    background-color: transparent; /* Fondo transparente */
-}
-
-.option-button:hover,
-.option-button:focus {
+    text-decoration: none;
+    background-color: transparent;
+    transition: 0.3s ease;
+  }
+  
+  .option-button:hover,
+  .option-button:focus {
     color: #ffffff7e;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
     box-shadow: 0 0 20px #008cff, 0 0 50px #008cff, 0 0 100px #008cff;
-}
-
-.option-button img {
+  }
+  
+  .option-button img {
     width: 2rem;
     height: 2rem;
     object-fit: cover;
     transition: transform 0.3s ease, filter 0.3s ease;
-    filter: invert(1); /* Hace que la imagen sea blanca */
-}
-
-.option-button:hover img {
+    filter: invert(1);
+  }
+  
+  .option-button:hover img {
     transform: scale(1.1);
-    filter: invert(1); /* Aumenta el brillo al pasar el mouse */
-}
+    filter: invert(1);
+  }
+  

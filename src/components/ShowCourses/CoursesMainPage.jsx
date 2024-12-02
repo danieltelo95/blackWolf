@@ -62,7 +62,7 @@ const CoursesMainPage = () => {
       </h1>
       <h2 className="text-2xl text-white font-bold mb-8 mt-8">Cursos Disponibles</h2>
       {courses.length === 0 ? (
-        <div class="pyramid-loader">
+      <div class="pyramid-loader">
         <div class="wrapper">
           <span class="side side1"></span>
           <span class="side side2"></span>
