@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick"; // Importamos react-slick
 import { db } from '../../firebase/firebase';
 import { collection, getDocs } from "firebase/firestore";
+import './CoursesMainPage.css'
 
 const CoursesMainPage = () => {
   const [courses, setCourses] = useState([]);
@@ -56,9 +57,20 @@ const CoursesMainPage = () => {
 
   return (
     <div className="flex flex-col items-center mt-4">
-      <h1 className="text-2xl text-white font-bold mb-8 mt-8">Cursos Disponibles</h1>
+      <h1 className="titulo">
+        Domina el arte de la <br /> Lectura del <span className="highlight">Tarot</span>
+      </h1>
+      <h2 className="text-2xl text-white font-bold mb-8 mt-8">Cursos Disponibles</h2>
       {courses.length === 0 ? (
-        <p>No hay cursos disponibles</p>
+        <div class="pyramid-loader">
+        <div class="wrapper">
+          <span class="side side1"></span>
+          <span class="side side2"></span>
+          <span class="side side3"></span>
+          <span class="side side4"></span>
+          <span class="shadow"></span>
+        </div>  
+      </div>
       ) : (
         <Slider {...settings} className="w-full max-w-6xl"> {/* Añadimos el carrusel */}
           {courses.map((course, index) => (

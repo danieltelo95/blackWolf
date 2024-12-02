@@ -6,7 +6,10 @@ import whatsapp from '../../assets/images/whatsapp.png'
 const Footer = () => {
 
     return(
-    <div className="flex justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
+        <h2 className="text-white font-bold text-3xl mt-6 mb-8 text-center mb-4">
+        Contáctame 
+        </h2>  
         <div class="parent">
             <div class="card">
                 <div class="logo">

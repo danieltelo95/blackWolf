@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import './Info.css'
 import Slider from "react-slick";
 
@@ -55,7 +56,10 @@ function Info() {
     };
     
     return (
-      <div className="flex flex-col items-center mt-4 mb-16">       
+      <div className="flex flex-col items-center mt-2 mb-16">     
+        <h2 className="titulo">
+        Conoce las cartas  
+        </h2>  
           <Slider {...settings} className="w-full max-w-6xl"> {/* Añadimos el carrusel */}
             {cards.map((card, index) => (
               <div key={index} className="p-4">
@@ -81,6 +85,9 @@ function Info() {
               </div>
             ))}
           </Slider>
+          <Link to='./cards' className="option-button">
+            Más Cartas
+          </Link>
       </div>
     );
   };

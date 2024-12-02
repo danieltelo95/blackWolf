@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import andres from '../../assets/images/andres.jpg'
 
 const About = () => {
@@ -28,6 +29,9 @@ const About = () => {
                     I'm always excited to share what I've learned and connect with those seeking 
                     clarity and understanding in their lives.
                     </p>                  
+                    <Link to="https://wa.link/587ars" className="option-button">
+                        Contáctame
+                    </Link>
                 </div>
             </div>
         </div>
