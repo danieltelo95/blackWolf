@@ -13,7 +13,7 @@ const CardDetail = () => {
       const url = "https://tarot-api-es.vercel.app/api/v1/cards";
 
       try {
-        const response = await fetch(url);
+        const response = await fetch(url); 
         if (!response.ok) {
           throw new Error("Error al obtener los datos");
         }
